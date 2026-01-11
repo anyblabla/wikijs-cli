@@ -15,7 +15,7 @@ Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instanc
 
    ```bash
    git clone https://github.com/anyblabla/wikijs-cli.git
-   cd wiki-cli-manager
+   cd wikijs-cli
    ```
 
 2. **Installer les dépendances** :
