@@ -1,14 +1,20 @@
 # Wiki.js CLI Manager by BlablaLinux
 
-![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
-![Python](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)
-![Status](https://img.shields.io/badge/Status-Active-success.svg)
-![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg)
-
+`https://img.shields.io/badge/License-GPL--3.0-blue.svg`
+`https://img.shields.io/badge/Python-3.9%2B-yellow.svg`
+`https://img.shields.io/badge/Status-Active-success.svg`
+`https://img.shields.io/badge/Platform-Linux-lightgrey.svg`
 
 Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instance [Wiki.js](https://js.wiki/) directement depuis le terminal.
 
 **English version available below.**
+
+---
+
+## 📦 Dépôts disponibles
+
+- **GitHub** : [https://github.com/anyblabla/wikijs-cli](https://github.com/anyblabla/wikijs-cli)  
+- **Gitea (miroir auto‑hébergé)** : [https://gitea.blablalinux.be/blablalinux/wikijs-cli](https://gitea.blablalinux.be/blablalinux/wikijs-cli)  
 
 ---
 
@@ -25,8 +31,17 @@ Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instanc
 
 ### 1. Cloner le dépôt
 
+#### 🔵 Depuis GitHub
+
 ```bash
 git clone https://github.com/anyblabla/wikijs-cli.git
+cd wikijs-cli
+```
+
+#### 🟠 Depuis Gitea
+
+```bash
+git clone https://gitea.blablalinux.be/blablalinux/wikijs-cli.git
 cd wikijs-cli
 ```
 
@@ -49,7 +64,7 @@ WIKI_TOKEN = "votre_token_api"
 
 ## 📖 Documentation complète
 
-👉 [https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)
+[https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)
 
 ---
 
@@ -74,8 +89,17 @@ Distribué sous licence **GPL‑3.0**.
 
 ### 1. Clone the repository
 
+#### 🔵 From GitHub
+
 ```bash
 git clone https://github.com/anyblabla/wikijs-cli.git
+cd wikijs-cli
+```
+
+#### 🟠 From Gitea
+
+```bash
+git clone https://gitea.blablalinux.be/blablalinux/wikijs-cli.git
 cd wikijs-cli
 ```
 
@@ -90,7 +114,7 @@ pip3 install -r requirements.txt
 Edit `wiki_cli.py` and set:
 
 ```python
-WIKI_URL = "https://your-wiki.tld/grapql"
+WIKI_URL = "https://your-wiki.tld/graphql"
 WIKI_TOKEN = "your_api_token"
 ```
 
@@ -98,7 +122,7 @@ WIKI_TOKEN = "your_api_token"
 
 ## 📚 Full Documentation
 
-👉 [https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)  
+[https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)  
 (English version coming soon)
 
 ---
