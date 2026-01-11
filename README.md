@@ -41,7 +41,7 @@ pip3 install -r requirements.txt
 Éditez `wiki_cli.py` et renseignez :
 
 ```python
-WIKI_URL = "https://votre-wiki.tld"
+WIKI_URL = "https://votre-wiki.tld/graphql"
 WIKI_TOKEN = "votre_token_api"
 ```
 
@@ -90,7 +90,7 @@ pip3 install -r requirements.txt
 Edit `wiki_cli.py` and set:
 
 ```python
-WIKI_URL = "https://your-wiki.tld"
+WIKI_URL = "https://your-wiki.tld/grapql"
 WIKI_TOKEN = "your_api_token"
 ```
 
