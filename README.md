@@ -1,38 +1,108 @@
 # Wiki.js CLI Manager by BlablaLinux
 
+![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Active-success.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg)
+
+
 Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instance [Wiki.js](https://js.wiki/) directement depuis le terminal.
 
-## ✨ Fonctionnalités
+**English version available below.**
 
-- **Lister / Rechercher** : Affiche vos pages avec leur statut (publié/brouillon) et leur langue.  
-- **Créer** : Crée des pages en Markdown avec gestion automatique de la langue via le slug.  
-- **Modifier** : Édition rapide du contenu via votre éditeur local (Nano, Vim, etc.).  
-- **Supprimer** : Suppression sécurisée avec confirmation.
+---
+
+## 🇫🇷 Fonctionnalités
+
+- **Lister / Rechercher** : Affiche les pages avec leur statut (publié / brouillon) et leur langue.  
+- **Créer** : Génère des pages Markdown avec détection automatique de la langue via le slug.  
+- **Modifier** : Ouvre rapidement une page dans votre éditeur local (Nano, Vim, etc.).  
+- **Supprimer** : Suppression sécurisée avec confirmation interactive.
+
+---
 
 ## 🚀 Installation rapide
 
-1. **Cloner le dépôt** :
+### 1. Cloner le dépôt
 
-   ```bash
-   git clone https://github.com/anyblabla/wikijs-cli.git
-   cd wikijs-cli
-   ```
+```bash
+git clone https://github.com/anyblabla/wikijs-cli.git
+cd wikijs-cli
+```
 
-2. **Installer les dépendances** :
+### 2. Installer les dépendances
 
-   ```bash
-   pip3 install -r requirements.txt
-   ```
+```bash
+pip3 install -r requirements.txt
+```
 
-3. **Configuration**  
-   Ouvrez `wiki_cli.py` et renseignez vos variables `WIKI_URL` et `WIKI_TOKEN`.
+### 3. Configuration
+
+Éditez `wiki_cli.py` et renseignez :
+
+```python
+WIKI_URL = "https://votre-wiki.tld"
+WIKI_TOKEN = "votre_token_api"
+```
+
+---
 
 ## 📖 Documentation complète
 
-Retrouvez le tutoriel détaillé sur mon wiki :  
 👉 [https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)
+
+---
 
 ## ⚖️ Licence
 
-Distribué sous licence **GPL-3.0**.  
-Voir le fichier `LICENSE` pour plus d'informations.
+Distribué sous licence **GPL‑3.0**.
+
+---
+
+# 🇬🇧 English Version
+
+## ✨ Features
+
+- **List / Search**: Display pages with their status (published / draft) and language.  
+- **Create**: Generate Markdown pages with automatic language detection based on the slug.  
+- **Edit**: Quickly open a page in your local editor (Nano, Vim, etc.).  
+- **Delete**: Safe deletion with interactive confirmation.
+
+---
+
+## 🚀 Quick Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/anyblabla/wikijs-cli.git
+cd wikijs-cli
+```
+
+### 2. Install dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+### 3. Configuration
+
+Edit `wiki_cli.py` and set:
+
+```python
+WIKI_URL = "https://your-wiki.tld"
+WIKI_TOKEN = "your_api_token"
+```
+
+---
+
+## 📚 Full Documentation
+
+👉 [https://wiki.blablalinux.be/fr/python-conception-cli-wikijs](https://wiki.blablalinux.be/fr/python-conception-cli-wikijs)  
+(English version coming soon)
+
+---
+
+## ⚖️ License
+
+Released under **GPL‑3.0**.
