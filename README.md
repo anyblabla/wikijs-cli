@@ -4,6 +4,8 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 ![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg)
+[![Demo on X](https://img.shields.io/badge/Demo-X-000000?logo=x)](https://x.com/BlablaLinux/status/2010331294027366754)
+[![Demo on Mastodon](https://img.shields.io/badge/Demo-Mastodon-6364FF?logo=mastodon)](https://mastodon.blablalinux.be/@blablalinux/115876532413596808)
 
 Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instance [Wiki.js](https://js.wiki/) directement depuis le terminal.
 
@@ -11,10 +13,19 @@ Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instanc
 
 ---
 
+## 🎥 Démonstration vidéo
+
+Une courte démonstration de l’utilisation du script est disponible ici :
+
+- **Twitter / X** : https://x.com/BlablaLinux/status/2010331294027366754  
+- **Mastodon** : https://mastodon.blablalinux.be/@blablalinux/115876532413596808  
+
+---
+
 ## 📦 Dépôts disponibles
 
-- **GitHub** : [https://github.com/anyblabla/wikijs-cli](https://github.com/anyblabla/wikijs-cli)  
-- **Gitea (miroir auto‑hébergé)** : [https://gitea.blablalinux.be/blablalinux/wikijs-cli](https://gitea.blablalinux.be/blablalinux/wikijs-cli)  
+- **GitHub** : https://github.com/anyblabla/wikijs-cli  
+- **Gitea (miroir auto‑hébergé)** : https://gitea.blablalinux.be/blablalinux/wikijs-cli  
 
 ---
 
