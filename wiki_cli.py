@@ -4,7 +4,6 @@ import os
 import tempfile
 import subprocess
 
-# --- Configuration Blabla Linux ---
 # Script conçu par BlablaLinux
 # Remplacez les valeurs ci-dessous par vos propres accès API
 WIKI_URL = "https://wiki.votre-domaine.be/graphql"
