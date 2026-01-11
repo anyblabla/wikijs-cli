@@ -1,9 +1,9 @@
 # Wiki.js CLI Manager by BlablaLinux
 
-`https://img.shields.io/badge/License-GPL--3.0-blue.svg`
-`https://img.shields.io/badge/Python-3.9%2B-yellow.svg`
-`https://img.shields.io/badge/Status-Active-success.svg`
-`https://img.shields.io/badge/Platform-Linux-lightgrey.svg`
+![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Active-success.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg)
 
 Un outil en ligne de commande (CLI) simple et efficace pour gérer votre instance [Wiki.js](https://js.wiki/) directement depuis le terminal.
 
