@@ -3,7 +3,12 @@ import sys
 import os
 import tempfile
 import subprocess
+import readline
 
+# Activation du support de l'édition de ligne (flèches, backspace, copier-coller)
+readline.parse_and_bind("tab: complete")
+
+# --- Configuration Wiki.js ---
 # Script conçu par BlablaLinux
 # Remplacez les valeurs ci-dessous par vos propres accès API
 WIKI_URL = "https://wiki.votre-domaine.be/graphql"
@@ -22,7 +27,7 @@ def query_graphql(query, variables=None):
         return {}
 
 def get_text_from_editor(initial_content=""):
-    """Ouvre Nano pour éditer le contenu Markdown."""
+    """Ouvre l'éditeur par défaut (nano) pour éditer le contenu Markdown."""
     editor = os.environ.get('EDITOR', 'nano')
     with tempfile.NamedTemporaryFile(suffix=".md", delete=False, mode='w+', encoding='utf-8') as tf:
         tf.write(initial_content)
@@ -50,7 +55,7 @@ def select_page_ui(action_name):
     print(f"\n{'─'*10} {action_name} {'─'*10}")
     search = input("Rechercher un mot-clé (ou Entrée pour tout lister) : ")
     pages = list_pages(search)
-
+    
     if not pages:
         print("Aucune page trouvée.")
         return None
@@ -58,7 +63,7 @@ def select_page_ui(action_name):
     for i, p in enumerate(pages):
         pub = "✔" if p['isPublished'] else "✘"
         print(f"{i+1:2d}) [{p['locale'].upper()}] [{pub}] {p['title']} ({p['path']})")
-
+    
     idx_input = input("\nNuméro de la page (ou 'q' pour annuler) : ")
     if idx_input.lower() == 'q' or not idx_input: return None
     try:
@@ -70,7 +75,7 @@ def create_page():
     print("\n" + "─"*40 + "\n📄 CRÉATION D'UNE PAGE\n" + "─"*40)
     title = input("Titre : ")
     path = input("Slug (ex: mon-tuto ou en/my-tuto) : ")
-
+    
     if path.startswith("en/"):
         locale = "en"
     else:
@@ -90,10 +95,10 @@ def create_page():
       pages { create(content: $content, description: $description, editor: $editor, isPublished: $isPublished, isPrivate: $isPrivate, locale: $locale, path: $path, tags: $tags, title: $title) {
           responseResult { succeeded, message }
         } } }"""
-
+    
     vars = {
-        "content": content, "description": desc, "editor": "markdown",
-        "isPublished": is_published, "isPrivate": False,
+        "content": content, "description": desc, "editor": "markdown", 
+        "isPublished": is_published, "isPrivate": False, 
         "locale": locale, "path": path, "tags": tags, "title": title
     }
     res = query_graphql(mutation, vars)
@@ -111,7 +116,7 @@ def update_page():
     title = input(f"Titre [{current['title']}] : ") or current['title']
     desc = input(f"Description [{current['description']}] : ") or current['description']
     path = input(f"Slug [{current['path']}] : ") or current['path']
-
+    
     locale = "en" if path.startswith("en/") else "fr"
     if locale == "fr" and path.startswith("fr/"): path = path[3:]
 
@@ -126,20 +131,23 @@ def update_page():
       pages { update(id: $id, content: $content, description: $description, editor: $editor, isPublished: $isPublished, isPrivate: $isPrivate, locale: $locale, path: $path, tags: $tags, title: $title) {
           responseResult { succeeded, message }
         } } }"""
-
+    
     vars = {
-        "id": current['id'], "content": content, "description": desc, "editor": current['editor'],
-        "isPublished": is_published, "isPrivate": current['isPrivate'],
+        "id": current['id'], "content": content, "description": desc, "editor": current['editor'], 
+        "isPublished": is_published, "isPrivate": current['isPrivate'], 
         "locale": locale, "path": path, "tags": tags, "title": title
     }
     res = query_graphql(mutation, vars)
-    print(f"✅ Résultat : {res['data']['pages']['update']['responseResult']['message']}")
+    if 'errors' in res:
+         print(f"❌ Erreur : {res['errors'][0]['message']}")
+    else:
+         print(f"✅ Résultat : {res['data']['pages']['update']['responseResult']['message']}")
     input("\nAppuyez sur Entrée...")
 
 def delete_page():
     current = select_page_ui("🗑️ SUPPRESSION")
     if not current: return
-
+    
     if input(f"⚠️ Confirmer la suppression définitive de '{current['title']}' ? (oui/non) : ").lower() == 'oui':
         res = query_graphql("mutation($id: Int!) { pages { delete(id: $id) { responseResult { succeeded, message } } } }", {"id": current['id']})
         print(f"✅ Résultat : {res['data']['pages']['delete']['responseResult']['message']}")
@@ -148,14 +156,14 @@ def delete_page():
 def main():
     while True:
         clear_screen()
-        print("\n" + "═"*30 + "\n      WIKI.JS CLI MANAGER\n          by BlablaLinux\n" + "═"*30)
+        print("\n" + "═"*30 + "\n      WIKI.JS CLI MANAGER\n         by BlablaLinux\n" + "═"*30)
         print("  1. Lister / Rechercher les pages")
         print("  2. Créer une nouvelle page")
         print("  3. Modifier une page existante")
         print("  4. Supprimer une page")
         print("  q. Quitter le programme")
         print("─"*30)
-
+        
         choix = input("Action : ").lower()
         if choix == '1':
             s = input("Recherche (Entrée pour tout) : ")
@@ -169,9 +177,8 @@ def main():
         elif choix == '2': create_page()
         elif choix == '3': update_page()
         elif choix == '4': delete_page()
-        elif choix == 'q':
+        elif choix == 'q': 
             clear_screen()
-            # Récupération dynamique du nom d'utilisateur système
             user_name = os.environ.get('USER', 'Ami')
             print(f"Au revoir {user_name} ! Merci d'utiliser Wiki CLI by BlablaLinux.")
             break
