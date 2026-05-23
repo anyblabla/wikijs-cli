@@ -78,6 +78,7 @@ def create_page():
     
     if path.startswith("en/"):
         locale = "en"
+        path = path[3:]
     else:
         locale = "fr"
         if path.startswith("fr/"):
@@ -117,8 +118,13 @@ def update_page():
     desc = input(f"Description [{current['description']}] : ") or current['description']
     path = input(f"Slug [{current['path']}] : ") or current['path']
     
-    locale = "en" if path.startswith("en/") else "fr"
-    if locale == "fr" and path.startswith("fr/"): path = path[3:]
+    if path.startswith("en/"):
+        locale = "en"
+        path = path[3:]
+    else:
+        locale = "fr"
+        if path.startswith("fr/"): 
+            path = path[3:]
 
     pub_choice = input(f"Publier ? (actuel: {current['isPublished']}) (o/n/Entrée) : ").lower()
     is_published = current['isPublished'] if not pub_choice else (pub_choice == 'o')
@@ -139,9 +145,9 @@ def update_page():
     }
     res = query_graphql(mutation, vars)
     if 'errors' in res:
-         print(f"❌ Erreur : {res['errors'][0]['message']}")
+        print(f"❌ Erreur : {res['errors'][0]['message']}")
     else:
-         print(f"✅ Résultat : {res['data']['pages']['update']['responseResult']['message']}")
+        print(f"✅ Résultat : {res['data']['pages']['update']['responseResult']['message']}")
     input("\nAppuyez sur Entrée...")
 
 def delete_page():
@@ -156,7 +162,7 @@ def delete_page():
 def main():
     while True:
         clear_screen()
-        print("\n" + "═"*30 + "\n      WIKI.JS CLI MANAGER\n         by BlablaLinux\n" + "═"*30)
+        print("\n" + "═"*30 + "\n      WIKI.JS CLI MANAGER\n          by BlablaLinux\n" + "═"*30)
         print("  1. Lister / Rechercher les pages")
         print("  2. Créer une nouvelle page")
         print("  3. Modifier une page existante")
